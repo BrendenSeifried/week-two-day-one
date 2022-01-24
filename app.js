@@ -24,18 +24,18 @@ shedButton.addEventListener('click', () => {
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'shed');
 
-    if (hidingSpot === 0) {
+   /* if (correctSpot === 0) {
         shedContainer.classList.add('face');
        // console.log('shed');
         correctGuesses++;
 
-    } else if (hidingSpot === 1) {
+    } else if (hidingSpot === correctSpot) {
         treeContainer.classList.add('face');
        // console.log('tree');
 
-    } else if (hidingSpot === 2)
+    } else if (hidingSpot === correctSpot)
         boulderContainer.classList.add('face');
-   // console.log('working');
+   // console.log('working');*/
 
 });
 
@@ -44,7 +44,7 @@ treeButton.addEventListener('click', () => {
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'tree');
 
-    if (hidingSpot === 1) {
+   /* if (hidingSpot === 1) {
         treeContainer.classList.add('face');
        // console.log('shed');
         correctGuesses++;
@@ -55,7 +55,7 @@ treeButton.addEventListener('click', () => {
 
     } else if (hidingSpot === 2)
         boulderContainer.classList.add('face');
-   // console.log('working');
+   // console.log('working');*/
     
 });
 
@@ -64,7 +64,7 @@ boulderButton.addEventListener('click', () => {
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'boulder');
 
-    if (hidingSpot === 2) {
+   /* if (hidingSpot === 2) {
         boulderContainer.classList.add('face');
        // console.log('shed');
         correctGuesses++;
@@ -74,7 +74,7 @@ boulderButton.addEventListener('click', () => {
        // console.log('tree');
 
     } else if (hidingSpot === 1)
-        treeContainer.classList.add('face');
+        treeContainer.classList.add('face');*/
 });
 
 function handleGuess(userGuess, correctSpot) {
@@ -84,25 +84,34 @@ function handleGuess(userGuess, correctSpot) {
     boulderContainer.classList.remove('face');
     // then increment the guesses
     totalGuesses++;
-    totalEl.textContent = totalGuesses;
-    winsEl.textContent = correctGuesses;
-    lossesEl.textContent = totalGuesses - correctGuesses;
+   // totalEl.textContent = totalGuesses;
+   // winsEl.textContent = correctGuesses;
+    //lossesEl.textContent = totalGuesses - correctGuesses;
 
     // then grab the appropriate container element for the correct guess from the DOM
 
 
 
-   /* if (correctSpot === 0) {
+    if (correctSpot === 0) {
         shedContainer.classList.add('face');
         console.log('shed');
+    
 
     } else if (correctSpot === 1) {
         treeContainer.classList.add('face');
-        console.log('shed');
+        console.log('tree');
 
     } else if (correctSpot === 2)
         boulderContainer.classList.add('face');
-    console.log('working');*/
+    console.log('boulder');
+
+    if (userGuess === correctSpot) {
+        correctGuesses++;
+    } 
+
+    totalEl.textContent = totalGuesses;
+    winsEl.textContent = correctGuesses;
+    lossesEl.textContent = totalGuesses - correctGuesses;
     // then add the face class to that element so that the face shows up
     // then if the user guess is correct, increment the correct guesses
     // update the DOM to show this change to the user (including the losses, not tracked directly in state)
