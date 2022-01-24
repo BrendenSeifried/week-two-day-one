@@ -77,7 +77,8 @@ boulderButton.addEventListener('click', () => {
         treeContainer.classList.add('face');*/
 });
 
-function handleGuess(userGuess, correctSpot) {
+//function handleGuess(userGuess, correctSpot) 
+function handleGuess(correctSpot, userGuess) {
     // reset the styles
     shedContainer.classList.remove('face');
     treeContainer.classList.remove('face');
@@ -92,16 +93,16 @@ function handleGuess(userGuess, correctSpot) {
 
 
 
-    if (correctSpot === 0) {
+    if (correctSpot === 'shed') {
         shedContainer.classList.add('face');
         console.log('shed');
     
 
-    } else if (correctSpot === 1) {
+    } else if (correctSpot === 'tree') {
         treeContainer.classList.add('face');
         console.log('tree');
 
-    } else if (correctSpot === 2)
+    } else if (correctSpot === 'boulder')
         boulderContainer.classList.add('face');
     console.log('boulder');
 
