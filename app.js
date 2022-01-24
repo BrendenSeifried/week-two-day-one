@@ -27,6 +27,7 @@ shedButton.addEventListener('click', () => {
     if (hidingSpot === 0) {
         shedContainer.classList.add('face');
        // console.log('shed');
+        correctGuesses++;
 
     } else if (hidingSpot === 1) {
         treeContainer.classList.add('face');
@@ -43,6 +44,17 @@ treeButton.addEventListener('click', () => {
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'tree');
 
+    if (hidingSpot === 1) {
+        treeContainer.classList.add('face');
+       // console.log('shed');
+
+    } else if (hidingSpot === 0) {
+        shedContainer.classList.add('face');
+       // console.log('tree');
+
+    } else if (hidingSpot === 2)
+        boulderContainer.classList.add('face');
+   // console.log('working');
     
 });
 
@@ -50,6 +62,17 @@ boulderButton.addEventListener('click', () => {
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'boulder');
+
+    if (hidingSpot === 2) {
+        boulderContainer.classList.add('face');
+       // console.log('shed');
+
+    } else if (hidingSpot === 0) {
+        shedContainer.classList.add('face');
+       // console.log('tree');
+
+    } else if (hidingSpot === 1)
+        treeContainer.classList.add('face');
 });
 
 function handleGuess(userGuess, correctSpot) {
@@ -59,7 +82,13 @@ function handleGuess(userGuess, correctSpot) {
     boulderContainer.classList.remove('face');
     // then increment the guesses
     totalGuesses++;
+    totalEl.textContent = totalGuesses;
+    winsEl.textContent = correctGuesses;
+
     // then grab the appropriate container element for the correct guess from the DOM
+
+
+
    /* if (correctSpot === 0) {
         shedContainer.classList.add('face');
         console.log('shed');
